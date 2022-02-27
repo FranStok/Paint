@@ -1,9 +1,19 @@
-function crearGrid(N=16){
+let colorActual="blue";
+function designarColor(color){
+    const divs=document.querySelectorAll(".cuadrado");
+    divs.forEach(element => {
+        element.addEventListener("mouseover",function(e){
+            element.style.backgroundColor=color;
+            e.stopPropagation();
+        });
+    });
+}
+function crearGrid(color,N=16){
     const container=document.querySelector(".container");
     let topFila,fila;
     for (let i = 0; i < N; i++) {
         topFila=document.createElement("div");
-        topFila.classList.add("cuadrado", "topFila");
+        topFila.classList.add("topFila");
         for (let j = 0; j < N; j++) {
             fila=document.createElement("div");
             fila.classList.add("cuadrado", "fila");
@@ -11,15 +21,9 @@ function crearGrid(N=16){
         }
         container.appendChild(topFila);
     }
-    const divs=document.querySelectorAll(".cuadrado");
-    divs.forEach(element => {
-    element.addEventListener("mouseover",function(e){
-        element.style.backgroundColor="blue";
-        e.stopPropagation();
-    });
-});
+    designarColor(color);
 }
-crearGrid();
+crearGrid(colorActual);
 
 const boton=document.querySelector(".boton");
 boton.addEventListener("click",function(e){
@@ -32,6 +36,11 @@ boton.addEventListener("click",function(e){
         filas.forEach(element => {
             element.remove();
         });
-        crearGrid(input);
+        crearGrid(colorActual,input);
     }
+})
+const colorInput=document.querySelector(".color");
+colorInput.addEventListener("input",function(e){
+    colorActual=colorInput.value
+    designarColor(colorActual);
 })
