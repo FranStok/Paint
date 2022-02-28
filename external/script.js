@@ -1,4 +1,4 @@
-let colorActual="blue";
+let colorActual="black";
 function designarColor(color){
     const divs=document.querySelectorAll(".cuadrado");
     divs.forEach(element => {
@@ -25,11 +25,11 @@ function crearGrid(color,N=16){
 }
 crearGrid(colorActual);
 
-const boton=document.querySelector(".boton");
-boton.addEventListener("click",function(e){
-    let input=document.querySelector(".dimension").value;
+const boton=document.querySelector(".dimension");
+boton.addEventListener("input",function(e){
+    let input=boton.value;
     if(input>64 || input<1){
-        input=document.querySelector(".dimension").value;
+        input=boton.value;
         alert("No se permiten numeros negativos ,0 ni mayores a 64. Ingrese nuevamente.");
     }else{
         let filas=document.querySelectorAll(".topFila");

@@ -6,13 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="external/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Finger+Paint&family=Shizuru&display=swap" rel="stylesheet">
+    
 </head>
 <body>
-    <div class="container"></div>
+    <h1>Etch-a-sketch!</h1>
+    <div class="wraper">
+        <div class="wraper opciones">
+            <div>
+                <input type="number" name="dimension" class="dimension" min="2" max="64" placeholder="Dimension">
+            </div>
+            <input type="color" class="color">
+        </div>
+        <div class="container"></div>
+    </div>
     <script src="external/script.js" defer></script>
-    <label>Dimension del cuadrado(maximo 64):</label>
-    <input type="number" name="dimension" class="dimension" min="2" max="64">
-    <button class="boton">Actualizar</button>
-    <input type="color" class="color">
 </body>
 </html>
